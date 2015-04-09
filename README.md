@@ -11,3 +11,4 @@ What you have to do:
 * Enjoy!
 
 P.S. If you don't understand a part of this guide, just write me a PN (Forum name: Thomas P.) or ask per mail. :)
+P.P.S Oh, and: Credit for the example PQSMod goes to Kragrathea ;)
