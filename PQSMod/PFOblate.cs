@@ -41,22 +41,26 @@ namespace Kopernicus
 				// Actual PQS mod we are loading
                 private PQSMod_PFOblate _mod;
 
-				void IParserEventSubscriber.Apply(ConfigNode node)
-				{
-                    _mod.offset = 3600;
-                    _mod.power = 2;
-                        
-				}
+                [ParserTarget("offset", optional = true)]
+                private NumericParser<double> offset
+                {
+                    set { _mod.offset = value.value; }
+                }
 
-				void IParserEventSubscriber.PostApply(ConfigNode node)
-				{
+                [ParserTarget("power", optional = true)]
+                private NumericParser<double> power
+                {
+                    set { _mod.power = value.value; }
+                }
 
-				}
+                void IParserEventSubscriber.Apply(ConfigNode node) { }
+                
+                void IParserEventSubscriber.PostApply(ConfigNode node) { }
 
                 public PFOblate()
 				{
 					// Create the base mod
-                    GameObject modObject = new GameObject("PQSMod_PFOblate");
+                    GameObject modObject = new GameObject("PFOblate");
                     modObject.transform.parent = Utility.Deactivator;
                     _mod = modObject.AddComponent<PQSMod_PFOblate>();
                     base.mod = _mod;
